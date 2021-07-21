@@ -150,15 +150,15 @@ boolean isLoaned = true;
 	@Test
 	public void testDoReturnChromebook() {
 		//fail("Not yet implemented");
-		// write your code here wl edit
-/*
- *	//Given an in camcorder list, after recording comcorder details to return book to save record in arraylist
- * 	assertSame("Test if the specified Camcorder model in arraylist isReturned status is false", camcorderList);
+	// write your code here wl edit
+
+ 	//Given an in camcorder list, after recording comcorder details to return book to save record in arraylist
+	assertSame("Test if the specified Camcorder model in arraylist isReturned status is false", camcorderList);
 
 
 		ResourceCentre.returnCamcorder(camcorderList);
 		
- */
+ 
 		
 		
 		//
