@@ -48,6 +48,7 @@ public class ResourceCentreTest {
 		ResourceCentre.addCamcorder(camcorderList, cc2);
 		assertEquals("Test that Camcorder arraylist size is 2?", 2, camcorderList.size());
 	}
+	
 	@Test
 	public void testAddChromebook() {
 		// fail("Not yet implemented");
@@ -55,7 +56,7 @@ public class ResourceCentreTest {
 		// write your code here
 		
 		// Item list is not null, so that can add a new item
-		assertNotNull("Test if there is valid Chromebookorder arraylist to add to", chromebookList);
+		assertNotNull("Test if there is valid Chromebook arraylist to add to", chromebookList);
 				
 		//Given an empty list, after adding 1 item, the size of the list is 1
 		ResourceCentre.addChromebook(chromebookList, cb1);		

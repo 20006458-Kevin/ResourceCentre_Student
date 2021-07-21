@@ -89,9 +89,7 @@ public class ResourceCentre {
 			} else {
 				System.out.println("Invalid option");
 			}
-
 		}
-
 	}
 
 	public static void menu() {
@@ -102,7 +100,6 @@ public class ResourceCentre {
 		System.out.println("4. Return item");
 		System.out.println("5. Quit");
 		Helper.line(80, "-");
-
 	}
 	
 	public static void setHeader(String header) {
@@ -113,7 +110,6 @@ public class ResourceCentre {
 
 	public static String showAvailability(boolean isAvailable) {
 		String avail;
-
 		if (isAvailable == true) {
 			avail = "Yes";
 		} else {
@@ -135,6 +131,7 @@ public class ResourceCentre {
 		}
 		return output;
 	}
+	
 	public static void viewAllCamcorder(ArrayList<Camcorder> camcorderList) {
 		ResourceCentre.setHeader("CAMCORDER LIST");
 		String output = String.format("%-10s %-30s %-10s %-10s %-20s\n", "ASSET TAG", "DESCRIPTION",
@@ -146,8 +143,17 @@ public class ResourceCentre {
 	public static String retrieveAllChromebook(ArrayList<Chromebook> chromebookList) {
 		String output = "";
 		// write your code here
+		// jialu's work
+		for (int i = 0; i < chromebookList.size(); i++) {
+
+			output += String.format("%-10s %-30s %-10s %-10s %-20d\n", chromebookList.get(i).getAssetTag(),
+					chromebookList.get(i).getDescription(), 
+					ResourceCentre.showAvailability(chromebookList.get(i).getIsAvailable()),
+					chromebookList.get(i).getDueDate(),chromebookList.get(i).getOs());
+		}
 		return output;
 	}
+	
 	public static void viewAllChromebook(ArrayList<Chromebook> chromebookList) {
 		
 		String output = retrieveAllChromebook(chromebookList);
@@ -173,11 +179,13 @@ public class ResourceCentre {
 	public static Chromebook inputChromebook() {	
 		Chromebook cb =null;
 		// write your code here
-		return cb;
-		
+		return cb;	
 	}	
+	
 	public static void addChromebook(ArrayList<Chromebook> chromebookList, Chromebook cb) {
 		// write your code here
+		chromebookList.add(cb);
+		System.out.println("Chromebook added");
 	}
 	
 	//================================= Option 3 Loan an item (CRUD - Update) =================================
