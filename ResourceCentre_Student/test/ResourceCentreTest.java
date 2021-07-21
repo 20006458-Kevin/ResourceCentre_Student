@@ -109,7 +109,7 @@ public class ResourceCentreTest {
 	@Test
 	public void testDoLoanChromebook() {
 		//fail("Not yet implemented");
-		// write your code here//Eiffel is doing this
+		// write your code here
 		
 	}
 	
@@ -117,7 +117,7 @@ public class ResourceCentreTest {
 	public void testDoReturnCamcorder() {
 		//fail("Not yet implemented");
 		// write your code here
-		
+		//weiling member 4''
 	}
 	@Test
 	public void testDoReturnChromebook() {
