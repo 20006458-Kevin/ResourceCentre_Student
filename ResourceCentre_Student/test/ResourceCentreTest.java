@@ -51,7 +51,13 @@ public class ResourceCentreTest {
 	@Test
 	public void testAddChromebook() {
 		//fail("Not yet implemented");
-		// write your code here
+		// write your code here 
+		String asset = Helper.readString("Enter asset tag > ");
+		String description = Helper.readString("Enter description > ");
+		String operating = Helper.readString("Enter operating system > ");
+		
+		chromebookList.add(new Chromebook(asset, description, operating));
+		System.out.println("Chromebook added");
 	}
 	
 	@Test
@@ -87,15 +93,50 @@ public class ResourceCentreTest {
 	@Test
 	public void testDoLoanCamcorder() {
 		//fail("Not yet implemented");
-		// write your code here
-		
+		// write your code here 
+		ResourceCentre.viewAllCamcorder(camcorderList);
+		String asset = Helper.readString("Enter asset tag > ");
+
+		boolean isFound = false;
+
+		for (int i = 0; i < camcorderList.size(); i++) {
+			if (asset.equalsIgnoreCase(camcorderList.get(i).getAssetTag())
+					&& camcorderList.get(i).getIsAvailable() == true) {
+				String due = Helper.readString("Enter due date > ");
+				camcorderList.get(i).setIsAvailable(false);
+				
+				camcorderList.get(i).setDueDate(due);
+				isFound = true;
+				System.out.println("Camcorder " + asset + " loaned out");
+			}
+		}
+		if (isFound == false) {
+			System.out.println("Invalid asset tag");
+		}
 	}
 	
 	@Test
 	public void testDoLoanChromebook() {
 		//fail("Not yet implemented");
-		// write your code here
-		
+		// write your code here 
+		ResourceCentre.viewAllChromebook(chromebookList);
+		String asset = Helper.readString("Enter asset tag > ");
+		boolean isFound = false;
+
+		for (int i = 0; i < chromebookList.size(); i++) {
+			if (asset.equalsIgnoreCase(chromebookList.get(i).getAssetTag())
+					&& chromebookList.get(i).getIsAvailable() == true) {
+				String due = Helper.readString("Enter due date > ");
+				chromebookList.get(i).setIsAvailable(false);
+				chromebookList.get(i).setDueDate(due);
+				isFound = true;
+				System.out.println("Chromebook" + asset + "loaned out");
+
+			}
+		}
+		if (isFound == false) {
+			System.out.println("Invalid asset tag");
+		}
 	}
 	
 	@Test
@@ -103,13 +144,50 @@ public class ResourceCentreTest {
 		//fail("Not yet implemented");
 		// write your code here
 		//weiling member 4''
-	}
+		ResourceCentre.viewAllCamcorder(camcorderList);
+		String asset = Helper.readString("Enter asset tag > ");
+		boolean isReturned = false;
+
+		for (int i = 0; i < camcorderList.size(); i++) {
+			if (asset.equalsIgnoreCase(camcorderList.get(i).getAssetTag())
+					&& camcorderList.get(i).getIsAvailable() == false) {
+				camcorderList.get(i).setIsAvailable(true);
+				camcorderList.get(i).setDueDate("");
+				isReturned = true;
+				System.out.println("Camcorder" + asset + " returned");
+
+			}
+		}
+		if (isReturned == false) {
+			System.out.println("Invalid asset tag");
+		}
+
+	}	 
+	
 	@Test
 	public void testDoReturnChromebook() {
 		//fail("Not yet implemented");
-		// write your code here
+		// write your code here wl edit
+		ResourceCentre.viewAllChromebook(chromebookList);
+		String asset = Helper.readString("Enter asset tag > ");
+		boolean isReturned = false;
+
+		for (int i = 0; i < chromebookList.size(); i++) {
+			if (asset.equalsIgnoreCase(chromebookList.get(i).getAssetTag())
+					&& chromebookList.get(i).getIsAvailable() == false) {
+				chromebookList.get(i).setIsAvailable(true);
+				chromebookList.get(i).setDueDate("");
+				isReturned = true;
+				System.out.println("Chromebook" + asset + "returned");
+
+			}
+		}
+		if (isReturned == false) {
+			System.out.println("Invalid asset tag");
+		}
 	}
-	
+
+
 	@After
 	public void tearDown() throws Exception {
 		cc1 = null;
