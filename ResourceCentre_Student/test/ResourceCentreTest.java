@@ -92,9 +92,24 @@ public class ResourceCentreTest {
 	}
 	
 	@Test
-	public void testDoLoanChromebook() {
+	public boolean testDoLoanChromebook(ArrayList<Camcorder> chromebookList, String tag, String dueDate) {
 		//fail("Not yet implemented");
-		// write your code here//Eiffel is doing this
+		// write your code here
+		// Eiffel is doing this
+		boolean isLoaned = false;
+
+		for (int i = 0; i < chromebookList.size(); i++) {
+			if (tag.equalsIgnoreCase(chromebookList.get(i).getAssetTag())
+					&& chromebookList.get(i).getIsAvailable() == true) {
+				
+				chromebookList.get(i).setIsAvailable(false);
+				chromebookList.get(i).setDueDate(dueDate);
+				
+				isLoaned = true;
+				
+			}
+		}
+		return isLoaned;
 		
 	}
 	
