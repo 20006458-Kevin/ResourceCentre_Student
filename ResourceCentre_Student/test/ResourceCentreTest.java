@@ -48,8 +48,10 @@ public class ResourceCentreTest {
 		ResourceCentre.addCamcorder(camcorderList, cc2);
 		assertEquals("Test that Camcorder arraylist size is 2?", 2, camcorderList.size());
 	}
+	
 	@Test
 	public void testAddChromebook() {
+//<<<<<<< HEAD
 		//fail("Not yet implemented");
 		// write your code here 
 		String asset = Helper.readString("Enter asset tag > ");
@@ -58,6 +60,25 @@ public class ResourceCentreTest {
 		
 		chromebookList.add(new Chromebook(asset, description, operating));
 		System.out.println("Chromebook added");
+//=======
+		// fail("Not yet implemented");
+		// jialu's work
+		// write your code here
+		
+		// Item list is not null, so that can add a new item
+		assertNotNull("Test if there is valid Chromebook arraylist to add to", chromebookList);
+				
+		//Given an empty list, after adding 1 item, the size of the list is 1
+		ResourceCentre.addChromebook(chromebookList, cb1);		
+		assertEquals("Test if that Chromebook arraylist size is 1?", 1, chromebookList.size());
+				
+		//The item just added is as same as the first item of the list
+		assertSame("Test that Chromebook is added same as 1st item of the list?", cb1, chromebookList.get(0));
+				
+		//Add another item. test The size of the list is 2?
+		ResourceCentre.addChromebook(chromebookList, cb2);
+		assertEquals("Test that Chromebook arraylist size is 2?", 2, chromebookList.size());
+//>>>>>>> branch 'master' of https://github.com/20006458-Kevin/ResourceCentre_Student.git
 	}
 	
 	@Test
@@ -94,73 +115,35 @@ public class ResourceCentreTest {
 	public void testDoLoanCamcorder() {
 		//fail("Not yet implemented");
 		// write your code here 
-		ResourceCentre.viewAllCamcorder(camcorderList);
-		String asset = Helper.readString("Enter asset tag > ");
-
-		boolean isFound = false;
-
-		for (int i = 0; i < camcorderList.size(); i++) {
-			if (asset.equalsIgnoreCase(camcorderList.get(i).getAssetTag())
-					&& camcorderList.get(i).getIsAvailable() == true) {
-				String due = Helper.readString("Enter due date > ");
-				camcorderList.get(i).setIsAvailable(false);
-				
-				camcorderList.get(i).setDueDate(due);
-				isFound = true;
-				System.out.println("Camcorder " + asset + " loaned out");
-			}
-		}
-		if (isFound == false) {
-			System.out.println("Invalid asset tag");
-		}
+		
 	}
 	
 	@Test
-	public void testDoLoanChromebook() {
+	public boolean testDoLoanChromebook(ArrayList<Chromebook> chromebookList, String tag, String dueDate) {
 		//fail("Not yet implemented");
+		
+boolean isLoaned = true;
 		// write your code here 
-		ResourceCentre.viewAllChromebook(chromebookList);
-		String asset = Helper.readString("Enter asset tag > ");
-		boolean isFound = false;
-
-		for (int i = 0; i < chromebookList.size(); i++) {
-			if (asset.equalsIgnoreCase(chromebookList.get(i).getAssetTag())
-					&& chromebookList.get(i).getIsAvailable() == true) {
-				String due = Helper.readString("Enter due date > ");
-				chromebookList.get(i).setIsAvailable(false);
-				chromebookList.get(i).setDueDate(due);
-				isFound = true;
-				System.out.println("Chromebook" + asset + "loaned out");
-
+	return isLoaned;
 			}
-		}
-		if (isFound == false) {
-			System.out.println("Invalid asset tag");
-		}
-	}
+		
+		
+//>>>>>>> branch 'master' of https://github.com/20006458-Kevin/ResourceCentre_Student.git
 	
 	@Test
 	public void testDoReturnCamcorder() {
 		//fail("Not yet implemented");
 		// write your code here
 		//weiling member 4''
-		ResourceCentre.viewAllCamcorder(camcorderList);
-		String asset = Helper.readString("Enter asset tag > ");
-		boolean isReturned = false;
+		
+		
+		 	//Given an in Chromebook list, after recording Chromebook details to return book to save record in arraylist
+		  	assertSame("Test if the specified Camcorder model in arraylist isReturned status is false", chromebookList);
 
-		for (int i = 0; i < camcorderList.size(); i++) {
-			if (asset.equalsIgnoreCase(camcorderList.get(i).getAssetTag())
-					&& camcorderList.get(i).getIsAvailable() == false) {
-				camcorderList.get(i).setIsAvailable(true);
-				camcorderList.get(i).setDueDate("");
-				isReturned = true;
-				System.out.println("Camcorder" + asset + " returned");
 
-			}
-		}
-		if (isReturned == false) {
-			System.out.println("Invalid asset tag");
-		}
+				ResourceCentre.returnChromebook(chromebookList);
+				
+		 
 
 	}	 
 	
@@ -168,23 +151,17 @@ public class ResourceCentreTest {
 	public void testDoReturnChromebook() {
 		//fail("Not yet implemented");
 		// write your code here wl edit
-		ResourceCentre.viewAllChromebook(chromebookList);
-		String asset = Helper.readString("Enter asset tag > ");
-		boolean isReturned = false;
+/*
+ *	//Given an in camcorder list, after recording comcorder details to return book to save record in arraylist
+ * 	assertSame("Test if the specified Camcorder model in arraylist isReturned status is false", camcorderList);
 
-		for (int i = 0; i < chromebookList.size(); i++) {
-			if (asset.equalsIgnoreCase(chromebookList.get(i).getAssetTag())
-					&& chromebookList.get(i).getIsAvailable() == false) {
-				chromebookList.get(i).setIsAvailable(true);
-				chromebookList.get(i).setDueDate("");
-				isReturned = true;
-				System.out.println("Chromebook" + asset + "returned");
 
-			}
-		}
-		if (isReturned == false) {
-			System.out.println("Invalid asset tag");
-		}
+		ResourceCentre.returnCamcorder(camcorderList);
+		
+ */
+		
+		
+		//
 	}
 
 
